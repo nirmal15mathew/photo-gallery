@@ -1,7 +1,6 @@
 
 import "./globals.css";
 
-
 export const metadata = {
   title: "Gallery",
   description: "Made by nirmal thomas mathew",

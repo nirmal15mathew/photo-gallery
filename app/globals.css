@@ -9,3 +9,7 @@
 main {
     @apply p-4;
 }
+
+* {
+    list-style: none;
+}
