@@ -11,6 +11,6 @@ export async function FrameParent({ imgRef }) {
 
     return <div>
         <PhotoFrame src={imgUrl}/>
-        <button onClick={() => deleteImage()}></button>
+        
     </div>
 }
