@@ -1,17 +1,16 @@
 "use client"
 import Image from "next/image";
-import {useState, useTransition} from "react"
-import { deleteImage } from "../actions";
+import {useState} from "react"
+
 export default function PhotoFrame({
     src,
     title,
     location,
 }) {
     const [titleVis, setTitleVisibility] = useState(false);
-    const [isPending, startDeletion] = useTransition()
 
     return (
-        <figure className="rounded-lg overflow-hidden flex-grow" onMouseOver={() => setTitleVisibility(true)} onMouseLeave={() => setTitleVisibility(false)}>
+        <figure className="rounded-lg overflow-hidden flex-grow" onMouseEnter={() => setTitleVisibility(true)} onMouseLeave={() => setTitleVisibility(false)}>
             <Image src={src}
                 width={400}
                 height={300}

@@ -1,10 +1,6 @@
+"use server"
 import { deleteObject, getStorage } from "firebase/storage";
 
 export async function deleteImage(imgRef) {
-    deleteObject(imgRef).then((res) => {
-        return true
-    })
-    .catch((reg) => {
-        return false
-    })
+    await deleteObject(imgRef)
 }
