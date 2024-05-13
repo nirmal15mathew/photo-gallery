@@ -1,23 +1,17 @@
-import { deleteObject, getDownloadURL, getStorage, ref } from "firebase/storage";
+import { deleteObject, getDownloadURL, getStorage, ref} from "firebase/storage";
 import PhotoFrame from "./PhotoFrame";
 import app from "../firebase";
 
-export async function FrameParent({ imgPath }) {
+export async function FrameParent({ imgRef }) {
 
-    const storage = getStorage(app)
-    const imgRef = ref(storage, imgPath)
     const imgUrl = await getDownloadURL(imgRef) || "";
-
-    async function deleteImage({imgRef, formData}) {
+    
+    async function deleteImage(formData) {
         "use server"
-
-        return await deleteObject(imgRef)
+        const storage = getStorage(app)
+        const imRef = ref(storage, imgRef.fullPath)
+        deleteObject(imRef).then((rs) => console.log(rs)).catch((er) => console.log(er))
     }
-    const deleteImageWithRef = deleteImage.bind(null, imgRef)
-    // if (imgPath != '') {
-    // }
-
-
 
     
     return <div>

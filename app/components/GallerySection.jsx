@@ -18,7 +18,7 @@ export async function GallerySection() {
     const imgRefList = await getImagesList() || []
     
 
-    const imgList = imgRefList.map((src, i) =>(<FrameParent imgPath={src.fullPath} key={i}></FrameParent>))
+    const imgList = imgRefList.map((src, i) =>(<FrameParent imgRef={src} key={i}></FrameParent>))
     return <section className="px-4">
         <div className="px-2 flex justify-start flex-wrap gap-4 items-start content-start">
             {imgList}
