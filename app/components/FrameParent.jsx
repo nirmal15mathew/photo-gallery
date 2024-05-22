@@ -16,7 +16,7 @@ export async function FrameParent({ imgRef }) {
     
     return <div>
         <PhotoFrame src={imgUrl} />
-        <form action={deleteImage}>
+        <form action={deleteImage} className={true ? "hidden": ""}>
             <button type="submit">Delete</button>
         </form>
     </div>
